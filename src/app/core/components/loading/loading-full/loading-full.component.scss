@@ -1,0 +1,16 @@
+.loading-full {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden !important;
+  z-index: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  img {
+    width: 100%;
+    height: fit-content;
+  }
+}

@@ -1,0 +1,35 @@
+<app-dialog [IConfigDialog]="IConfigDialog" (accept)="onSubmit()">
+  <ng-container *ngIf="IConfigDialog?.card; else loading">
+    <section class="dialog-card">
+      <section class="dialog-card_content-left">
+        <h1 class="text-3xl font-medium">{{ IConfigDialog.card.supertype }}</h1>
+        <img [src]="IConfigDialog.card.images.small" />
+      </section>
+
+      <section class="dialog-card_content-rigth">
+        <p class="text-sm">Tipo:</p>
+        <div *ngFor="let type of IConfigDialog.card.types; let i = index">
+          <section class="info-text">
+            <img [src]="TYPES[type]" alt="" />
+            <p class="text-xl font-medium hover:font-bold">{{ type }}</p>
+          </section>
+        </div>
+        <p class="text-sm">Fraquesa:</p>
+        <div *ngFor="let weak of IConfigDialog.card.weaknesses; let i = index">
+          <section class="info-text">
+            <img [src]="TYPES[weak.type]" alt="" />
+            <p class="text-xl font-medium hover:font-bold">{{ weak.value }}</p>
+          </section>
+        </div>
+      </section>
+    </section>
+  </ng-container>
+  <ng-template #loading>
+    <app-loading-center
+      [IimageConfig]="{
+        width: '150px',
+        height: 'auto'
+      }"
+    ></app-loading-center>
+  </ng-template>
+</app-dialog>

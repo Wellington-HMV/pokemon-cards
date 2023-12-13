@@ -1,0 +1,49 @@
+<app-dialog
+  [IConfigDialog]="IConfigDeckDialog"
+  [disable]="form.invalid"
+  (accept)="onSubmit()"
+>
+  <ng-container *ngIf="!loading; else loadingContent">
+    <form [formGroup]="form" class="form-deck">
+      <section class="form-deck_content">
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="name"
+            placeholder="Nome do meu deck"
+          />
+          <mat-error *ngIf="form.controls['name'].hasError('required')">
+            Nome é <strong>obrigatório.</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo do deck</mat-label>
+          <mat-select formControlName="type">
+            <mat-option selected>Selecione</mat-option>
+            <mat-option
+              *ngFor="let item of (types$ | async)?.data"
+              [value]="item"
+              ><div class="select-item">
+                {{ TYPESTRS[item] }} <img [src]="TYPES[item]" width="30px" /></div
+            ></mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['type'].hasError('required')">
+            Typo é <strong>obrigatório.</strong>
+          </mat-error>
+        </mat-form-field>
+      </section>
+    </form>
+  </ng-container>
+
+  <ng-template #loadingContent>
+    <app-loading-center
+      [IimageConfig]="{
+        width: '100px',
+        height: 'auto'
+      }"
+    ></app-loading-center>
+  </ng-template>
+</app-dialog>

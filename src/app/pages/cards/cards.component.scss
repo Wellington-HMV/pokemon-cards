@@ -1,0 +1,100 @@
+.cards {
+  width: 100%;
+  height: 91vh;
+
+  display: inline-flex;
+
+  &_list {
+    width: 70vw;
+    height: 85vh;
+
+    &_content {
+      background-repeat: round;
+      background-size: contain;
+      background-image: url("https://img.freepik.com/free-vector/comic-style-background_23-2148827393.jpg?w=1380&t=st=1702433040~exp=1702433640~hmac=a720d29f5be3bc536a61cb9f86fdd9b829853151b1e38d2f54f64ec9d31bcc09");
+      height: 87vh;
+      overflow: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: space-between;
+    }
+
+    .paginator {
+      box-shadow: 0px 0px 10px var(--my-gray);
+      position: relative;
+    }
+
+    .cart {
+      padding: 5px 5px 15px 10px;
+      width: auto;
+    }
+
+    app-loading-center {
+      width: -webkit-fill-available;
+      height: -webkit-fill-available;
+    }
+  }
+
+  &_side {
+    width: calc(100% - 70vw);
+    box-shadow: 0px 0px 10px var(--my-gray);
+    margin-right: 0;
+    margin-left: 10px;
+    h1 {
+      color: var(--my-green);
+    }
+
+    &_list {
+      width: auto;
+      height: 64vh;
+      overflow: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: flex-start;
+      gap: 15px;
+
+      & > .empty-cards {
+        background-image: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        span {
+          font-size: 4rem;
+        }
+      }
+    }
+    .img-backgrd {
+      background-repeat: round;
+      background-image: url("https://img.freepik.com/free-vector/comic-style-background_23-2148827394.jpg?w=1380&t=st=1702433325~exp=1702433925~hmac=f0ed38bd5264e6bbbba8fb3b56bc4a47dd948dfaf265d4f3c1eec2185a0dc99d");
+    }
+  }
+
+  @media screen and (width < 800px) {
+    flex-direction: column-reverse;
+    height: max-content;
+    margin: 0 auto;
+    overflow: hidden !important;
+
+    &_list {
+      width: 100vw;
+      margin: 0 auto;
+      &_content {
+        justify-content: center;
+      }
+    }
+    &_side {
+      width: 100vw;
+      margin: 0 auto;
+    }
+  }
+}

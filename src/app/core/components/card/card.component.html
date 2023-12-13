@@ -1,0 +1,10 @@
+<div class="card-component" *ngIf="IimageConfig && ICardInput">
+  <img
+    [@rubberBandOnEnter]
+    [src]="ICardInput.image"
+    [attr.width]="IimageConfig.width"
+    [attr.height]="IimageConfig.height"
+    
+    (click)="selected()"
+  />
+</div>

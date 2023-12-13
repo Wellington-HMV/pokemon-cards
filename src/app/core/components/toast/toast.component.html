@@ -1,0 +1,20 @@
+<ngb-toast
+  *ngFor="let toast of toastService.toasts"
+  class="bg-{{ toast.type }} text-slate-50"
+  [header]="toast.header"
+  [autohide]="true"
+  [delay]="toast.delay || 5000"
+  (hiddden)="toastService.remove(toast)"
+  >{{ toast.body }}
+
+  <ng-container *ngIf="toast.type === 'info'">
+    <button
+      placement="start"
+      ngbTooltip="Não aparecer novamente!"
+      class="btn btn-primary align-end"
+      (click)="notShowMore(toast)"
+    >
+      Ok!
+    </button>
+  </ng-container>
+</ngb-toast>

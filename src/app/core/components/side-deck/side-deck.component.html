@@ -1,0 +1,39 @@
+<div class="side-deck">
+  <section class="side-deck_header">
+    <h2 class="text-3xl font-medium">{{ deck.name | uppercase }}</h2>
+    <section class="side-deck_header_action">
+      <div class="side-deck_header_expand" (click)="onEditDeck()">
+        <span class="material-symbols-outlined"> bottom_panel_open </span>
+      </div>
+      <app-dropdown-btn
+        [config]="configMenuDeck"
+        (selected)="onAction($event)"
+      ></app-dropdown-btn>
+    </section>
+  </section>
+  <section class="container-fluid side-deck_content">
+    <div class="row">
+      <div class="col">
+        <section class="item-content-left">
+          <span class="text-lg font-semibold">{{ TYPESTRS[deck.type] }}</span>
+          <img [src]="TYPES[deck.type]" width="100px" />
+        </section>
+      </div>
+
+      <div class="col">
+        <section class="item-content-rigth" ngbTooltip="Quantidade de Cartas">
+          <img src="./assets/images/decks/cards.png" width="50px" />
+          <span>{{ deck.cards?.length ?? 0 }}/60</span>
+        </section>
+        <section class="item-content-rigth" ngbTooltip="Quantidade de Pokémons">
+          <img src="./assets/images/pokemon-ball/pokeball-icon-01.svg" width="50px" />
+          <span>{{ onCountSuperType("supertype", "Pokémon") }}</span>
+        </section>
+        <section class="item-content-rigth" ngbTooltip="Quantidade de energias (cores)">
+          <img src="./assets/images/decks/colors-01.svg" width="50px" />
+          <span>{{ onCountTypes() }}</span>
+        </section>
+      </div>
+    </div>
+  </section>
+</div>

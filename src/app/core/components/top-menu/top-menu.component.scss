@@ -1,0 +1,24 @@
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: var(--my-gray);
+  overflow: hidden;
+  margin-bottom: 10px;
+  & a {
+    float: left;
+    color: var(--my-white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  & a:hover {
+    background-color: var(--my-ligth-white);
+    color: var(--my-gray);
+  }
+
+  & a.active {
+    background-color:var(--my-green);
+    color: var(--my-white);
+  }
+}

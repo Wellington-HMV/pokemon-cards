@@ -1,0 +1,50 @@
+.dialog-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &_content-left {
+    width: 100%;
+    display: inline-grid;
+    gap: 20px;
+    align-items: end;
+    align-content: center;
+    * {
+      box-shadow: -6px 5px 6px 0px var(--my-ligth-gray);
+    }
+    img {
+      border-radius: 5%;
+    }
+    h1 {
+      padding: 5px;
+      border-radius: 10px;
+    }
+  }
+
+  &_content-rigth {
+    width: 100%;
+    display: inline-grid;
+    gap: 20px;
+    align-content: center;
+    section {
+      box-shadow: -6px 5px 6px 0px var(--my-ligth-gray);
+    }
+    .info-text {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 10px;
+      margin-left: 20px;
+      border-radius: 10px;
+      align-items: center;
+      gap: 20px;
+      img {
+        width: 50px;
+      }
+    }
+    .text-sm {
+      line-height: 0px;
+      padding-left: 10px;
+    }
+  }
+}

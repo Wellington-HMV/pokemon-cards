@@ -1,0 +1,13 @@
+<div class="dropdown">
+  <div (click)="open = !open" class="dropbtn">
+    <span class="material-symbols-outlined"> {{ config.icon }} </span>
+  </div>
+  <div *ngIf="open" class="dropdown-content" (mouseleave)="open = false">
+    <a
+      *ngFor="let option of config.options"
+      (click)="onClick(option)"
+    >
+      {{ option.name }}
+    </a>
+  </div>
+</div>

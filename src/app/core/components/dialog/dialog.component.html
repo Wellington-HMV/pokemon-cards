@@ -1,0 +1,39 @@
+<section class="dialog" (keyup)="keyUpPress($event)">
+  <div class="modal-header">
+    <section class="modal-header_title">
+      <h2 class="modal-title">{{ IConfigDialog.title ?? "title" }}</h2>
+      <h4 class="modal-title">{{ IConfigDialog.subTitle ?? "subtitle" }}</h4>
+    </section>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="activeModal.dismiss()"
+    >
+      <span class="material-symbols-outlined"> close </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-content></ng-content>
+    <ng-container *ngIf="IConfigDialog.bodyTextOnly">
+      {{ IConfigDialog.bodyTextOnly }}
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="activeModal.close()"
+    >
+      {{ IConfigDialog.btn1Text ?? "Cancelar" }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="onConfirm()"
+      [disabled]="disable"
+    >
+      {{ IConfigDialog.btn2Text ?? "Adicionar" }}
+    </button>
+  </div>
+</section>

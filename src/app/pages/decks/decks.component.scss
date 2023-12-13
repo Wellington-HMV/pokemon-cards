@@ -1,0 +1,45 @@
+.decks {
+  background-image: url("https://img.freepik.com/free-vector/blue-speed-comic-style-background_23-2148820924.jpg?w=900&t=st=1702434524~exp=1702435124~hmac=2857e1c53c3642cfc24530748defe8fe1da03e9bc55df2d9485de799c38b72bf");
+  height: -webkit-fill-available;
+  position: absolute;
+  background-repeat: round;
+  background-size: contain;
+  table {
+    width: 100%;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .table-top {
+    display: flex;
+    gap: 15px;
+    background: white;
+    margin: -11px;
+    padding: 25px 0px 0px 0px;
+    align-items: baseline;
+    flex-wrap: nowrap;
+  }
+
+  .type-item {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .actions {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+
+  .nothing-search {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,32 @@
+.dialog {
+  .modal-header {
+    background-color: var(--my-gray);
+    &_title {
+      color: var(--my-white);
+      display: flex;
+      flex-direction: column;
+      .modal-title:first-child {
+        font-size: 1.5rem;
+      }
+    }
+    .btn-close {
+      color: var(--my-white);
+      border-radius: 50%;
+      background-color: var(--my-green);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .modal-footer {
+    background-color: var(--my-green);
+    button {
+      color: var(--my-white);
+      border-color: var(--my-white);
+    }
+  }
+}
+
+::ng-deep .cdk-overlay-container {
+  z-index: 1060;
+}

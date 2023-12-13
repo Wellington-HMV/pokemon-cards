@@ -1,0 +1,11 @@
+.loading-center {
+  width: auto;
+  height: -webkit-fill-available;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}

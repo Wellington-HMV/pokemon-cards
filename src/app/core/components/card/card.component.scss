@@ -1,0 +1,11 @@
+.card-component {
+  img {
+    box-shadow: -3px 3px 7px -2px var(--my-gray);
+    border-radius: 3%;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+}

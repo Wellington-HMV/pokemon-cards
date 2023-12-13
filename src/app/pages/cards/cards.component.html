@@ -1,0 +1,96 @@
+<section class="cards">
+  <div class="cards_list">
+    <ng-container
+      *ngIf="
+        !loadingCards && (cards$ | async)?.data as CardsList;
+        else loadingCp
+      "
+    >
+      <ng-container *ngIf="tableView; else cardMode">
+        <!-- por conta do tempo resolvi não fazer a alteração de para tabela -->
+      </ng-container>
+      <ng-template #cardMode>
+        <section class="paginator">
+          <mat-paginator
+            (page)="handlePageEvent($event)"
+            [length]="length"
+            [pageSize]="pageSize"
+            [showFirstLastButtons]="true"
+            [pageSizeOptions]="pageSizeOptions"
+            [hidePageSize]="false"
+            [pageIndex]="pageIndex"
+            aria-label="Select page"
+          >
+          </mat-paginator>
+        </section>
+
+        <section class="cards_list_content">
+          <div *ngFor="let item of CardsList; let i = index" class="cart">
+            <app-card-component
+              [ICardInput]="{
+                title: item.name,
+                image: item?.images.small,
+                supertype: item.supertype,
+                types: item.types
+              }"
+              (Selected)="selectCard(item)"
+            ></app-card-component>
+          </div>
+        </section>
+      </ng-template>
+    </ng-container>
+    <ng-template #loadingCp>
+      <app-loading-center></app-loading-center>
+    </ng-template>
+  </div>
+
+  <div class="cards_side">
+    <app-side-deck
+      [deck]="deck$"
+      [loading]="loading"
+      (actionSelected)="onActionCardsDeck($event)"
+    ></app-side-deck>
+    <div class="cards_side_list" [ngClass]="{ 'img-backgrd': (cardsDeck$ | async).length }">
+      <ng-container *ngIf="!loading; else loadingCp">
+        <ng-container *ngIf="cardsDeck$ | async as CardsDeck">
+          <ng-container *ngIf="CardsDeck.length > 0; else emptyCards">
+            <div *ngFor="let item of CardsDeck; let i = index" class="cart">
+              <app-card-component
+                [ICardInput]="{
+                  title: item.name,
+                  image: item.images.small,
+                  supertype: item.supertype,
+                  types: item.types
+                }"
+                [IimageConfig]="{
+                  width: '100px',
+                  height: 'auto'
+                }"
+                (Selected)="removeCard(item, i + 1)"
+              ></app-card-component>
+            </div>
+          </ng-container>
+          <ng-template #emptyCards>
+            <section
+              class="empty-cards"
+              ngbTooltip="Clique nas cartas ao lado para adicionar ao deck"
+            >
+              <h1>Deck vazio...</h1>
+              <span class="material-symbols-outlined">
+                deployed_code_alert
+              </span>
+            </section>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+      <ng-template #loadingCp>
+        <app-loading-center
+          [IimageConfig]="{
+            width: '100px',
+            height: 'auto'
+          }"
+        ></app-loading-center>
+      </ng-template>
+    </div>
+  </div>
+</section>
