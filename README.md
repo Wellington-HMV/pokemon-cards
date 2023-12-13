@@ -1,27 +1,35 @@
 # PokemonCards
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
+O projeto foi gerado [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
-## Development server
+## Servidor de desenvolvimento
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Iniciar o projeto `ng serve` para rodar local. Abrir no navegador `http://localhost:4200/`.
 
-## Code scaffolding
+## Bibliotecas utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Angular material `@15.2.9`
+BootStrap `@5.3.2`
+tailwindcss `@3.3.6`
+ng-bootstrap/ng-bootstrap `@14.2.0`
+angular-animations `@0.11.0`
 
-## Build
+## Arquitetura
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Foi uttilizadoa arquitetura de lazing loading.
 
-## Running unit tests
+## Testes unitários
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+não foi implementado
+porém como padrão está sendo utilizado o Karma
 
-## Running end-to-end tests
+## Npm install
+executar o comando `npm i -d --legacy-peer-deps && ng s` caso haja algum conflito de versão na instalação dos pacotes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+##Testes
+Os testes foram realizados e gerado um pequeno documento de como a aplicaçãose comportaem alguns cenários:
+`https://docs.google.com/document/d/1fN2VN7RP8Bbdqx6nTtpvjD4sDDqQClraGBAPLxVcB8A/edit?usp=sharing`
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Obrigado! 
+att: Wellington Henrique Moreira Vitorino
